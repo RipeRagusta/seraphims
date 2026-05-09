@@ -1,0 +1,23 @@
+body{
+  background-color: #99ffcc;
+  color: #ff3399;
+}
+
+a{
+  color: #ff3399;
+  text-decoration: none;
+}
+
+@media (hover: hover)
+{
+  a:hover{
+    text-decoration: underline;
+  }
+}
+
+@media (hover: none) 
+{
+  a:active{
+      text-decoration: underline;
+  }
+}
