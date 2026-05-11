@@ -1,6 +1,15 @@
 body{
   background-color: #99ffcc;
   color: #ff3399;
+  min-height: 100dvh;
+}
+
+header h1{
+  font-size: min(8.0675rem, 7vmin);
+}
+
+h6{
+  color: #ff3399;
 }
 
 a{
@@ -20,4 +29,12 @@ a{
   a:active{
       text-decoration: underline;
   }
+}
+
+hr{
+  background-color: #ff3399;
+}
+
+footer{
+  background-color: #ff3399;
 }
