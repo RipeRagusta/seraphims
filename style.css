@@ -5,7 +5,7 @@ body{
 }
 
 header h1{
-  font-size: min(8.0675rem, 7vmin);
+  font-size: max(1rem, min(calc(8.0675rem * 3 / 5), 7vmin));
 }
 
 h6{
