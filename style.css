@@ -22,10 +22,18 @@ a{
   a:hover{
     text-decoration: underline;
   }
+
+  a:active{
+    text-decoration: underline;
+  }
 }
 
 @media (hover: none) 
 {
+  a:hover{
+    text-decoration: none;
+  }
+
   a:active{
       text-decoration: underline;
   }
