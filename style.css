@@ -1,6 +1,11 @@
+:root{
+  --backgroundColor: #99ffcc;
+  --color: #ff3399;
+}
+
 body{
-  background-color: #99ffcc;
-  color: #ff3399;
+  background-color: var(--backgroundColor);
+  color: var(--color);
   min-height: 100dvh;
 }
 
@@ -9,11 +14,11 @@ header h1{
 }
 
 h6{
-  color: #ff3399;
+  color: var(--color);
 }
 
 a{
-  color: #ff3399;
+  color: var(--color);
   text-decoration: none;
 }
 
@@ -40,9 +45,9 @@ a{
 }
 
 hr{
-  background-color: #ff3399;
+  background-color: var(--color);
 }
 
 footer{
-  background-color: #ff3399;
+  background-color: var(--color);
 }
