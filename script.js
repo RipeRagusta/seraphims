@@ -70,17 +70,24 @@ function initialize()
         { name: "redandwhite", id: 8, background: "#ffffff", color: "#ff0000", favicon: "./assets/favicons/redandwhite.svg" },
     ];
 
-    currentPage = 1;
-
     if(checkStorage() === true)
     {
-        if(localStorage.getItem("currentPage") !== null)
+        if(localStorage.getItem("currentPage") === null)
+        {
+            currentPage = 1;
+            localStorage.setItem("currentPage", currentPage);
+        }
+        else
         {
             currentPage = parseInt(localStorage.getItem("currentPage"));
+            randomizeColors();
         }
     }
-
-    randomizeColors();
+    else
+    {
+        currentPage = 1;
+        randomizeColors();
+    }
 
     let hasLeftPage = false;
 
