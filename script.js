@@ -70,6 +70,8 @@ function initialize()
         { name: "redandwhite", id: 8, background: "#ffffff", color: "#ff0000", favicon: "./assets/favicons/redandwhite.svg" },
     ];
 
+    currentPage = 1;
+
     if(checkStorage() === true)
     {
         if(localStorage.getItem("currentPage") !== null)
