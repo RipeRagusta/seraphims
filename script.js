@@ -64,11 +64,10 @@ function initialize()
         { name: "yellowblue", id: 2, background: "#33cccc", color: "#ffff00", favicon: "./assets/favicons/yellowblue.svg" },
         { name: "camo", id: 3, background: "#009933", color: "#ff6600", favicon: "./assets/favicons/camo.svg" },
         { name: "flesh", id: 4, background: "#ffb6c1", color: "#ffff00", favicon: "./assets/favicons/flesh.svg" },
-        { name: "flosh", id: 5, background: "#ffb6c1", color: "#00ff00", favicon: "./assets/favicons/flosh.svg" },
-        { name: "simple", id: 6, background: "#ffffff", color: "#000000", favicon: "./assets/favicons/simple.svg" },
-        { name: "dark", id: 7, background: "#000000", color: "#ffffff", favicon: "./assets/favicons/dark.svg" },
-        { name: "darkandblue", id: 8, background: "#000000", color: "#0000ff", favicon: "./assets/favicons/darkandblue.svg" },
-        { name: "redandwhite", id: 9, background: "#ffffff", color: "#ff0000", favicon: "./assets/favicons/redandwhite.svg" },
+        { name: "simple", id: 5, background: "#ffffff", color: "#000000", favicon: "./assets/favicons/simple.svg" },
+        { name: "dark", id: 6, background: "#000000", color: "#ffffff", favicon: "./assets/favicons/dark.svg" },
+        { name: "darkandblue", id: 7, background: "#000000", color: "#0000ff", favicon: "./assets/favicons/darkandblue.svg" },
+        { name: "redandwhite", id: 8, background: "#ffffff", color: "#ff0000", favicon: "./assets/favicons/redandwhite.svg" },
     ];
 
     if(checkStorage() === true)
