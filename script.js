@@ -62,7 +62,7 @@ function initialize()
     [
         { name: "standard", id: 1, background: "#99ffcc", color: "#ff3399", favicon: "./assets/favicons/standard.svg" },
         { name: "yellowblue", id: 2, background: "#33cccc", color: "#ffff00", favicon: "./assets/favicons/yellowblue.svg" },
-        { name: "camo", id: 3, background: "#009933", color: "#ff6600", favicon: "./assets/favicons/camo.svg" },
+        { name: "mint", id: 3, background: "#99ffcc", color: "#009933", favicon: "./assets/favicons/mint.svg" },
         { name: "flesh", id: 4, background: "#ffb6c1", color: "#ffff00", favicon: "./assets/favicons/flesh.svg" },
         { name: "simple", id: 5, background: "#ffffff", color: "#000000", favicon: "./assets/favicons/simple.svg" },
         { name: "dark", id: 6, background: "#000000", color: "#ffffff", favicon: "./assets/favicons/dark.svg" },
@@ -74,8 +74,10 @@ function initialize()
     {
         if(localStorage.getItem("currentPage") === null)
         {
-            currentPage = 1;
+            currentPage = getRandMinMax(1, defaultColors.length);
+            randomizeColors();
             localStorage.setItem("currentPage", currentPage);
+
         }
         else
         {
@@ -85,7 +87,7 @@ function initialize()
     }
     else
     {
-        currentPage = 1;
+        currentPage = getRandMinMax(1, defaultColors.length);
         randomizeColors();
     }
 
