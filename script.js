@@ -101,9 +101,14 @@ function initialize()
         } 
         else 
         {
+            let isMobile = window.matchMedia("(pointer: coarse)").matches;
+
             if(hasLeftPage)
             {
-                randomizeColors();
+                if(isMobile === false)
+                {
+                    randomizeColors();
+                }
                 hasLeftPage = false;
             }
         } 
