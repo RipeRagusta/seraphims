@@ -90,29 +90,6 @@ function initialize()
         currentPage = getRandMinMax(1, defaultColors.length);
         randomizeColors();
     }
-
-    let hasLeftPage = false;
-
-    document.addEventListener("visibilitychange", () => 
-    {
-        if(document.hidden) 
-        {
-             hasLeftPage = true;
-        } 
-        else 
-        {
-            let isMobile = window.matchMedia("(pointer: coarse)").matches;
-
-            if(hasLeftPage)
-            {
-                if(isMobile === false)
-                {
-                    randomizeColors();
-                }
-                hasLeftPage = false;
-            }
-        } 
-    });
 }
 
 function getRandMinMax(min, max)
