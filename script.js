@@ -123,7 +123,7 @@ function randomizeColors()
 
     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
     document.documentElement.style.setProperty("--color", selectedTheme.color);
-    document.querySelector("link[rel=\"shortcut icon\"]").href = selectedTheme.favicon;
+    document.querySelector("link[rel=\"icon\"]").href = selectedTheme.favicon;
 }
 
 function checkStorage()
