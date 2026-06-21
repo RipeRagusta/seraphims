@@ -11,8 +11,12 @@ function getLuckyNumber()
 function newLuckyNumber()
 {
     let luckyNumber = getLuckyNumber();
-    localStorage.setItem("epoch", Date.now());
-    localStorage.setItem("luckyNumber", luckyNumber);
+
+    if(checkStorage() === true)
+    {
+        localStorage.setItem("luckyNumber", luckyNumber);
+    }
+
     document.getElementById("lucky").textContent = luckyNumber;
 }
 
@@ -22,41 +26,7 @@ var defaultColors;
 function initialize()
 {
     let luckyNumber;
-
-    if(checkStorage() === true)
-    {
-        if(localStorage.getItem("epoch") === null)
-        {
-            newLuckyNumber();
-        }
-        else
-        {
-            let previousEpoch = parseInt(localStorage.getItem("epoch"));
-            let currentEpoch = parseInt(Date.now());
-
-            if(currentEpoch - previousEpoch > 86400000)
-            {
-                newLuckyNumber();
-            }
-            else
-            {
-                if(localStorage.getItem("luckyNumber") === null)
-                {
-                   newLuckyNumber();
-                }
-                else
-                {
-                    luckyNumber = localStorage.getItem("luckyNumber");
-                    document.getElementById("lucky").textContent = luckyNumber;
-                }
-            }
-        }
-    }
-    else
-    {
-        luckyNumber = getLuckyNumber();
-        document.getElementById("lucky").textContent = luckyNumber;
-    }
+    let colorTheme;
 
     defaultColors = 
     [
@@ -70,6 +40,79 @@ function initialize()
         { name: "redandwhite", id: 8, background: "#ffffff", color: "#ff0000", favicon: "./assets/favicons/redandwhite.svg" },
     ];
 
+    if(checkStorage() === true)
+    {
+        if(localStorage.getItem("epoch") === null)
+        {
+            newLuckyNumber();
+            newColorTheme();
+            localStorage.setItem("epoch", Date.now());
+        }
+        else
+        {
+            let previousEpoch = parseInt(localStorage.getItem("epoch"));
+            let currentEpoch = parseInt(Date.now());
+
+            if(currentEpoch - previousEpoch > 86400000)
+            {
+                newLuckyNumber();
+                newColorTheme();
+                localStorage.setItem("epoch", Date.now());
+            }
+            else
+            {
+                if(localStorage.getItem("luckyNumber") === null)
+                {
+                   newLuckyNumber();
+                }
+                else
+                {
+                    luckyNumber = localStorage.getItem("luckyNumber");
+                    document.getElementById("lucky").textContent = luckyNumber;
+                }
+
+                if(localStorage.getItem("currentPage") === null)
+                {
+                   newColorTheme();
+                }
+                else
+                {
+                    colorTheme = parseInt(localStorage.getItem("currentPage"));
+                    let selectedTheme = defaultColors.find(theme => theme.id === colorTheme);
+                    console.log(selectedTheme);
+                    document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
+                    document.documentElement.style.setProperty("--color", selectedTheme.color);
+
+                    let currentFavionLink = document.querySelector("link[rel=\"icon\"]");
+                    let newFavionLink = document.createElement("link");
+
+                    newFavionLink.rel = "icon";
+                    newFavionLink.href = selectedTheme.favicon;
+
+                    if(currentFavionLink) 
+                    {
+                        currentFavionLink.parentNode.removeChild(currentFavionLink);
+                    }
+
+                    document.head.appendChild(newFavionLink);
+                }
+            }
+        }
+    }
+    else
+    {
+        newLuckyNumber();
+        newColorTheme();
+    }
+}
+
+function getRandMinMax(min, max)
+{
+    return (Math.floor(Math.random() * (max - min + 1)) + min);
+}
+
+function newColorTheme()
+{
     if(checkStorage() === true)
     {
         if(localStorage.getItem("currentPage") === null)
@@ -90,11 +133,6 @@ function initialize()
         currentPage = getRandMinMax(1, defaultColors.length);
         randomizeColors();
     }
-}
-
-function getRandMinMax(min, max)
-{
-    return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
 
 function randomizeColors()
@@ -123,7 +161,19 @@ function randomizeColors()
 
     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
     document.documentElement.style.setProperty("--color", selectedTheme.color);
-    document.querySelector("link[rel=\"icon\"]").href = selectedTheme.favicon;
+
+    let currentFavionLink = document.querySelector("link[rel=\"icon\"]");
+    let newFavionLink = document.createElement("link");
+
+    newFavionLink.rel = "icon";
+    newFavionLink.href = selectedTheme.favicon;
+
+    if(currentFavionLink) 
+    {
+        currentFavionLink.parentNode.removeChild(currentFavionLink);
+    }
+
+    document.head.appendChild(newFavionLink);
 }
 
 function checkStorage()
