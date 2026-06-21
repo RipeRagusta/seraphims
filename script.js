@@ -91,12 +91,6 @@ function initialize()
         newLuckyNumber();
         newColorTheme();
     }
-
-    document.addEventListener("visibilitychange", () => 
-    {
-        let selectedTheme = defaultColors.find(theme => theme.id === currentPage);
-        updateFavicon(selectedTheme.favicon);
-    });
 }
 
 function updateFavicon(faviconUrl) 
