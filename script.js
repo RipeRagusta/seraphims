@@ -104,7 +104,7 @@ function updateFavicon(faviconUrl)
         document.head.appendChild(faviconLink);
     }
     
-    faviconLink.href = faviconUrl + "?v=" + Date.now();
+    faviconLink.href = faviconUrl;
 }
 
 function newColorTheme()
