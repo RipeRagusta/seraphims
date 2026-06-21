@@ -81,19 +81,7 @@ function initialize()
 
                     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
                     document.documentElement.style.setProperty("--color", selectedTheme.color);
-
-                    let currentFavionLink = document.querySelector("link[rel=\"icon\"]");
-                    let newFavionLink = document.createElement("link");
-
-                    newFavionLink.rel = "icon";
-                    newFavionLink.href = selectedTheme.favicon;
-
-                    if(currentFavionLink) 
-                    {
-                        currentFavionLink.parentNode.removeChild(currentFavionLink);
-                    }
-
-                    document.head.appendChild(newFavionLink);
+                    updateFavicon(selectedTheme.favicon);
                 }
             }
         }
@@ -107,19 +95,22 @@ function initialize()
     document.addEventListener("visibilitychange", () => 
     {
         let selectedTheme = defaultColors.find(theme => theme.id === currentPage);
-        let currentFavionLink = document.querySelector("link[rel=\"icon\"]");
-        let newFavionLink = document.createElement("link");
-
-        newFavionLink.rel = "icon";
-        newFavionLink.href = selectedTheme.favicon;
-
-        if(currentFavionLink) 
-        {
-            currentFavionLink.parentNode.removeChild(currentFavionLink);
-        }
-
-        document.head.appendChild(newFavionLink);
+        updateFavicon(selectedTheme.favicon);
     });
+}
+
+function updateFavicon(faviconUrl) 
+{
+    let faviconLink = document.querySelector("link[rel=\"icon\"]");
+    
+    if(!faviconLink) 
+    {
+        faviconLink = document.createElement("link");
+        faviconLink.rel = "icon";
+        document.head.appendChild(faviconLink);
+    }
+    
+    faviconLink.href = faviconUrl + "?v=" + Date.now();
 }
 
 function newColorTheme()
@@ -173,18 +164,7 @@ function randomizeColors()
     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
     document.documentElement.style.setProperty("--color", selectedTheme.color);
 
-    let currentFavionLink = document.querySelector("link[rel=\"icon\"]");
-    let newFavionLink = document.createElement("link");
-
-    newFavionLink.rel = "icon";
-    newFavionLink.href = selectedTheme.favicon;
-
-    if(currentFavionLink) 
-    {
-        currentFavionLink.parentNode.removeChild(currentFavionLink);
-    }
-
-    document.head.appendChild(newFavionLink);
+    updateFavicon(selectedTheme.favicon);
 }
 
 function checkStorage()
