@@ -154,7 +154,7 @@ function randomizeColors()
         (selectedTheme.color === (defaultColors.find(theme => theme.id === currentPage).color))
     );
 
-    currentPage = randomID
+    currentPage = randomID;
 
     if(checkStorage() === true)
     {
