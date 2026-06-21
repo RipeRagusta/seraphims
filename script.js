@@ -26,7 +26,6 @@ var defaultColors;
 function initialize()
 {
     let luckyNumber;
-    let colorTheme;
 
     defaultColors = 
     [
@@ -77,9 +76,9 @@ function initialize()
                 }
                 else
                 {
-                    colorTheme = parseInt(localStorage.getItem("currentPage"));
-                    let selectedTheme = defaultColors.find(theme => theme.id === colorTheme);
-                    console.log(selectedTheme);
+                    currentPage = parseInt(localStorage.getItem("currentPage"));
+                    let selectedTheme = defaultColors.find(theme => theme.id === currentPage);
+
                     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
                     document.documentElement.style.setProperty("--color", selectedTheme.color);
 
@@ -104,11 +103,23 @@ function initialize()
         newLuckyNumber();
         newColorTheme();
     }
-}
 
-function getRandMinMax(min, max)
-{
-    return (Math.floor(Math.random() * (max - min + 1)) + min);
+    document.addEventListener("visibilitychange", () => 
+    {
+        let selectedTheme = defaultColors.find(theme => theme.id === currentPage);
+        let currentFavionLink = document.querySelector("link[rel=\"icon\"]");
+        let newFavionLink = document.createElement("link");
+
+        newFavionLink.rel = "icon";
+        newFavionLink.href = selectedTheme.favicon;
+
+        if(currentFavionLink) 
+        {
+            currentFavionLink.parentNode.removeChild(currentFavionLink);
+        }
+
+        document.head.appendChild(newFavionLink);
+    });
 }
 
 function newColorTheme()
