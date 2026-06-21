@@ -163,7 +163,6 @@ function randomizeColors()
 
     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
     document.documentElement.style.setProperty("--color", selectedTheme.color);
-
     updateFavicon(selectedTheme.favicon);
 }
 
