@@ -35,8 +35,7 @@ function initialize()
         { name: "flesh", id: 4, background: "#ffb6c1", color: "#ffff00", favicon: "./assets/favicons/flesh.svg" },
         { name: "simple", id: 5, background: "#ffffff", color: "#000000", favicon: "./assets/favicons/simple.svg" },
         { name: "dark", id: 6, background: "#000000", color: "#ffffff", favicon: "./assets/favicons/dark.svg" },
-        { name: "darkandblue", id: 7, background: "#000000", color: "#0000ff", favicon: "./assets/favicons/darkandblue.svg" },
-        { name: "redandwhite", id: 8, background: "#ffffff", color: "#ff0000", favicon: "./assets/favicons/redandwhite.svg" },
+        { name: "darkandblue", id: 7, background: "#000000", color: "#0000ff", favicon: "./assets/favicons/darkandblue.svg" }
     ];
 
     if(checkStorage() === true)
@@ -95,16 +94,19 @@ function initialize()
 
 function updateFavicon(faviconUrl) 
 {
-    let faviconLink = document.querySelector("link[rel=\"icon\"]");
+    /*let faviconLink = document.querySelector("link[rel=\"icon\"]");
     
     if(!faviconLink) 
     {
         faviconLink = document.createElement("link");
         faviconLink.rel = "icon";
+        faviconLink.href = faviconUrl;
         document.head.appendChild(faviconLink);
     }
-    
-    faviconLink.href = faviconUrl;
+    else
+    {
+        faviconLink.href = faviconUrl;
+    }*/
 }
 
 function newColorTheme()
