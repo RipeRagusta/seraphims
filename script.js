@@ -74,9 +74,9 @@ function initialize()
                     document.getElementById("lucky").textContent = luckyNumber;
                 }
 
-                if(localStorage.getItem("currentPage") === null)
+                /*if(localStorage.getItem("currentPage") === null)
                 {
-                   //newColorTheme();
+                   newColorTheme();
                 }
                 else
                 {
@@ -86,7 +86,7 @@ function initialize()
                     document.documentElement.style.setProperty("--backgroundColor", selectedTheme.background);
                     document.documentElement.style.setProperty("--color", selectedTheme.color);
                     updateFavicon(selectedTheme.favicon);
-                }
+                }*/
             }
         }
     }
