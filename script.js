@@ -111,7 +111,7 @@ function updateFavicon(faviconUrl)
 
 function newColorTheme()
 {
-    if(checkStorage() === true)
+    /*if(checkStorage() === true)
     {
         if(localStorage.getItem("currentPage") === null)
         {
@@ -130,7 +130,7 @@ function newColorTheme()
     {
         currentPage = getRandMinMax(1, defaultColors.length);
         randomizeColors();
-    }
+    }*/
 }
 
 function randomizeColors()
