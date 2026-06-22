@@ -14,6 +14,11 @@ function newLuckyNumber()
 
     if(checkStorage() === true)
     {
+        while(parseInt(localStorage.getItem("luckyNumber")) === luckyNumber)
+        {
+            luckyNumber = getLuckyNumber();
+        }
+
         localStorage.setItem("luckyNumber", luckyNumber);
     }
 
@@ -43,7 +48,7 @@ function initialize()
         if(localStorage.getItem("epoch") === null)
         {
             newLuckyNumber();
-            newColorTheme();
+            //newColorTheme();
             localStorage.setItem("epoch", Date.now());
         }
         else
@@ -54,7 +59,7 @@ function initialize()
             if(currentEpoch - previousEpoch > 86400000)
             {
                 newLuckyNumber();
-                newColorTheme();
+                //newColorTheme();
                 localStorage.setItem("epoch", Date.now());
             }
             else
@@ -71,7 +76,7 @@ function initialize()
 
                 if(localStorage.getItem("currentPage") === null)
                 {
-                   newColorTheme();
+                   //newColorTheme();
                 }
                 else
                 {
@@ -88,13 +93,13 @@ function initialize()
     else
     {
         newLuckyNumber();
-        newColorTheme();
+        //newColorTheme();
     }
 }
 
 function updateFavicon(faviconUrl) 
 {
-    /*let faviconLink = document.querySelector("link[rel=\"icon\"]");
+    let faviconLink = document.querySelector("link[rel=\"icon\"]");
     
     if(!faviconLink) 
     {
@@ -106,12 +111,12 @@ function updateFavicon(faviconUrl)
     else
     {
         faviconLink.href = faviconUrl;
-    }*/
+    }
 }
 
 function newColorTheme()
 {
-    /*if(checkStorage() === true)
+    if(checkStorage() === true)
     {
         if(localStorage.getItem("currentPage") === null)
         {
@@ -130,7 +135,7 @@ function newColorTheme()
     {
         currentPage = getRandMinMax(1, defaultColors.length);
         randomizeColors();
-    }*/
+    }
 }
 
 function randomizeColors()
