@@ -11,9 +11,9 @@ body{
   background-color: var(--backgroundColor);
   color: var(--color);
   min-height: 100dvh;
-  /*filter: blur(0.6px);
+  filter: blur(0.6px);
   image-rendering: pixelated;
-  image-rendering: crisp-edges;*/
+  image-rendering: crisp-edges;
 }
 
 header h1{
