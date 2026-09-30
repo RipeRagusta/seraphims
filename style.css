@@ -1,6 +1,23 @@
 :root{
   --backgroundColor: #000000;
-  --color: #0000ff;
+  --color: #4409e1;
+}
+
+html{
+  filter: blur(0.6px);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+body::after{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 body{
@@ -12,7 +29,7 @@ body{
 header h1{
   font-size: max(1rem, min(calc(8.0675rem * 3 / 5), 7vmin));
   color: #000000;
-  text-shadow: 0 0 10px #ffffff;
+  text-shadow: 0 0 0.2em rgba(200, 245, 255, 0.9), 0 0 0.5em rgba(0, 225, 255, 0.7);
 }
 
 h6{
