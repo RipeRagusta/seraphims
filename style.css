@@ -1,6 +1,6 @@
 :root{
-  --backgroundColor: #99ffcc;
-  --color: #ff3399;
+  --backgroundColor: #000000;
+  --color: #0000ff;
 }
 
 body{
@@ -11,6 +11,8 @@ body{
 
 header h1{
   font-size: max(1rem, min(calc(8.0675rem * 3 / 5), 7vmin));
+  color: #000000;
+  text-shadow: 0 0 10px #ffffff;
 }
 
 h6{
