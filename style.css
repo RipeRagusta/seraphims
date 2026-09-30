@@ -11,9 +11,18 @@ body{
   background-color: var(--backgroundColor);
   color: var(--color);
   min-height: 100dvh;
-  filter: blur(0.6px);
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  backdrop-filter: blur(0.6px);
+  -webkit-backdrop-filter: blur(0.6px);
+  z-index: 9999;
 }
 
 header h1{
